@@ -19,11 +19,11 @@ public class IterationFibonacci {
         System.out.print("Enter Number  :   ");
         int num = sc.nextInt();
 
-        fibonacciSeries(num);
+        System.out.println(fibonacciSeries(num));
 
-        for(int i = 0; i < num; i++){
-            System.out.print(fibonacciSeries(i) + " ");
-        }
+       for(int i = 0; i < num; i++){
+           System.out.print(fibonacciSeries(i) + " ");
+       }
 
         sc.close();
     }
