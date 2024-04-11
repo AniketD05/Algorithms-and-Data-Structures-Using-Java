@@ -1,4 +1,4 @@
-package Mathematical;
+
 public class PerfectNumberorNot {
 
     static boolean isPerfect(int number) {

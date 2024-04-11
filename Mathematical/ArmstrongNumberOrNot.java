@@ -1,4 +1,4 @@
-package Mathematical;
+
 public class ArmstrongNumberOrNot {
 
     static boolean isArmstrong(int number) {

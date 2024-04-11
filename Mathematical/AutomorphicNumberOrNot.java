@@ -1,4 +1,4 @@
-package Mathematical;
+
 public class AutomorphicNumberOrNot {
 
     static boolean isAutomorphic(int number) {

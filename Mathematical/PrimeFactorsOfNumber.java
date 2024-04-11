@@ -1,4 +1,4 @@
-package Mathematical;
+
 public class PrimeFactorsOfNumber {
 
     static void primeFactors(int n) {

@@ -1,4 +1,4 @@
-package Mathematical;
+
 public class AmicableNumbersOrNot {
 
     static int sumOfDivisors(int number) {

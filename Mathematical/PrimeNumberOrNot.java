@@ -1,4 +1,4 @@
-package Mathematical;
+
 import java.util.Scanner;
 
 public class PrimeNumberOrNot {
