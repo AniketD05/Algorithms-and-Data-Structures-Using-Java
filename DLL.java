@@ -93,6 +93,41 @@ public class DLL {
         n.next = newNode;
         
         }
+
+        public void deleteAtEnd(){
+            Node n = head;
+
+            if (head == null) {
+                System.out.println("List Not Exists");
+                return;
+            }
+
+            while (n.next.next != null) {
+                n = n.next;
+            }
+
+            n.next = null;
+        }
+
+        public void deleteGivenNode(int key){
+
+            Node n = head;
+
+            if (head == null) {
+                System.out.println("List Not Exists");
+                return;
+            }
+
+            while (n != null && n.data != key) {
+                n = n.next;
+            }
+            n.next.prev = n.prev;
+            n.prev.next = n.prev.next.next;
+
+
+        }
+
+
         
 
     public void display() {
@@ -128,6 +163,13 @@ public class DLL {
         dll.display();
 
         dll.insertAtGivenposition(20,150);
+        dll.display();
+
+        dll.deleteAtEnd();
+        dll.display();
+
+        dll.deleteGivenNode(100);
+        dll.deleteGivenNode(150);
         dll.display();
     }
 }
