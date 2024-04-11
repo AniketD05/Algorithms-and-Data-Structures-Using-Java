@@ -1,3 +1,4 @@
+package String;
 public class SecondMostFrequentCharacter {
 
     public static char findSecondMostFrequentCharacter(String str) {

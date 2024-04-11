@@ -1,3 +1,4 @@
+package String;
 public class LowerToUpper {
 
     public static String convertToLowerToUpper(String str) {

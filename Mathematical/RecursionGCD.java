@@ -1,3 +1,4 @@
+package Mathematical;
 import java.util.Scanner;
 
 public class RecursionGCD {

@@ -1,3 +1,4 @@
+package Mathematical;
 public class RamanujamsNumberOrNot {
 
     static boolean isRamanujan(int number) {

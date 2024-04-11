@@ -1,3 +1,4 @@
+package Mathematical;
 public class NumberPalindromeOrNot {
 
     static boolean isPalindrome(int number) {

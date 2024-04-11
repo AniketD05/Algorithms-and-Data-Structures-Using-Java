@@ -1,3 +1,4 @@
+package Mathematical;
 
 class SmallestNonRepeatingElement {
 

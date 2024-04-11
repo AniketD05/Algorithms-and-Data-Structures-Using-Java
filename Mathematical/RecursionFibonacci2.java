@@ -1,3 +1,4 @@
+package Mathematical;
 
 /* This program is related to the generation of Fibonacci numbers. 
 For example: 0, 1, 1, 2, 3, 5, 8, 13,... is a Fibonacci sequence

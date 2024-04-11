@@ -1,3 +1,4 @@
+package Mathematical;
 public class LCMofTwoNumber {
 
     static int gcd(int a, int b) {
