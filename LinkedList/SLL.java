@@ -1,3 +1,4 @@
+package LinkedList;
 public class SLL {
 
     Node head;
