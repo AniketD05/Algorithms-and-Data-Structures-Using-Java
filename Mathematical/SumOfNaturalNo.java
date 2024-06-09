@@ -9,6 +9,7 @@ public class SumOfNaturalNo {
         int sum = num * (num + 1) / 2;
         System.out.println("sum is " + sum);
     }
+    
 
     // public static void SumOfN_NaturalNo(int num) {
 
@@ -20,6 +21,7 @@ public class SumOfNaturalNo {
     // }
     // System.out.println("Sum of " + num + " natural numbers is " + sum);
     // }
+
 
     // public static void SumOfN_NaturalNo(int num){
 

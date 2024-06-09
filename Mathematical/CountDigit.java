@@ -12,7 +12,7 @@ public class CountDigit {
         // System.out.println("Count is: " + count);
 
         int count = (int) (Math.log10(num) + 1);
-        return count;
+        return count; //optimized
     }
     
     public static void main(String[] args){
