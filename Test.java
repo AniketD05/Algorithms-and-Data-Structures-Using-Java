@@ -1,39 +1,101 @@
-
-import java.util.Scanner;
+import org.w3c.dom.Node;
 
 public class Test {
 
-    public static int gcd(int num1, int num2) {
+    Node head;
 
-        if (num2 == 0) {
-            return num1;
-        } else {
-            return gcd(num2, num1 % num2);
+    class Node {
+
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+
         }
     }
 
-    public static int lcm(int gcd, int num1, int num2) {
+    public void insertAtFront(int data) {
 
-        return (num1 * num2) / gcd;
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head.prev = newNode;
+        head = newNode;
+
+    }
+
+    public void insertAfter(int key, int data){
+
+        Node newNode = new Node(data);
+
+        Node n = head;
+
+        if(head == null){
+            head = newNode;
+            return;
+        }
+
+       while(n != null && n.data != key){
+        n = n.next;
+       }
+
+       if(n == null){
+        System.out.println("Key not found");
+        return;
+       }
+
+       newNode.next = n.next;
+       newNode.prev = n;
        
+       if(n.next != null){
+        n.next.prev = newNode;
+       }
+       n.next = newNode;
+
+    }
+
+    public void display() {
+
+        Node n = head;
+        Node p = null;
+        System.out.println("\n-------------------Forward Direction-------------------");
+        while (n != null) {
+
+            System.out.print(n.data + " ");
+            p = n;
+            n = n.next;
+        }
+
+        System.out.println();
+
+        // System.out.println("\n-------------------Forward Direction-------------------");
+
+        // while(p != null){
+        //     System.out.print(p.data + " ");
+        //     p = p.prev;
+        // }
     }
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Test t = new Test();
 
-        System.out.print("Enter First Number : ");
-        int num1 = sc.nextInt();
+        t.insertAtFront(10);
+        t.insertAtFront(30);
 
-        System.out.print("Enter Second Number : ");
-        int num2 = sc.nextInt();
+        t.display();
 
-        int result = gcd(num1, num2);
+        t.insertAfter(30, 20);
 
-        int lcm = lcm(result, num1, num2);
-
-        System.out.println(lcm);
-
-        sc.close();
+        t.display();
     }
 }
