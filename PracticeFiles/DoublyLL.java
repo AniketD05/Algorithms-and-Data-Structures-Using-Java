@@ -87,6 +87,57 @@ public class DoublyLL {
         System.out.println(data + " inserted after " + key);
     }
 
+    public void insertAtEnd(int data){
+
+        Node newNode = new Node(data);
+        Node n = head;
+        
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        
+        while(n.next != null){
+            n = n.next;
+        }
+
+        n.next = newNode;
+        newNode.prev = n;
+
+    }
+
+    public void deleteAtbegining(){
+
+        if(head == null && head.next == null){
+            System.out.println("Delete at begining cannot be performed!");
+            return;
+        }
+
+        head = head.next;
+
+        head.prev.next = null;
+        head.prev = null;
+
+    }
+
+    public void deleteAtEnd(){
+
+        Node n = head;
+
+        if(head == null && head.next == null){
+            System.out.println("Delete at begining cannot be performed!");
+            return;
+        }
+
+        while(n.next.next != null){
+            n = n.next;
+        }
+
+        n.next.prev = null;
+        n.next = null;
+    }
+
+
     public void display() {
 
         Node n = head;
@@ -108,6 +159,9 @@ public class DoublyLL {
         dll.insertAtBegining(40);
         dll.display();
 
+        dll.insertAtEnd(5);
+        dll.display();
+
         System.out.println();
 
         dll.insertSequencially(11);
@@ -120,6 +174,18 @@ public class DoublyLL {
         dll.insertAfterKeyNode(22, 122);
         dll.insertAfterKeyNode(22, 21);
         dll.insertAfterKeyNode(23, 22);
+        dll.display();
+
+        dll.deleteAtbegining();
+        dll.display();
+
+        dll.deleteAtbegining();
+        dll.display();
+
+        dll.deleteAtEnd();
+        dll.display();
+
+        dll.deleteAtEnd();
         dll.display();
     }
 }

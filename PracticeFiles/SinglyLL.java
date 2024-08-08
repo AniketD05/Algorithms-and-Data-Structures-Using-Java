@@ -131,9 +131,9 @@ public class SinglyLL {
 
         
         sll.insertAtBegining(10);
-        sll.insertAtBegining(40);
-        sll.insertAtBegining(30);
         sll.insertAtBegining(20);
+        sll.insertAtBegining(30);
+        sll.insertAtBegining(40);
         sll.displayll();
         sll.insertAfterKey(100, 300);
         sll.displayll();
