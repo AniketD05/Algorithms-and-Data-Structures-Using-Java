@@ -1,42 +1,42 @@
-import java.util.Arrays;
+class StringPractice {
 
-public class StringPractice {
+    public static void reverseWords(char[] arr, String str){
 
-    public static final int CHAR = 256;
+        int start = 0;
 
-    public static boolean isAnagram(String str1, String str2) {
+        for(int end = 0; end < str.length(); end++ ){
 
-        if(str1.length() != str2.length()){
-            return false;
+            if(arr[end] == '.'){
+                reverse(arr, start, end-1);
+                start = end + 1;
+            }
+        }
+        reverse(arr, start, str.length() - 1);
+        reverse(arr, 0, str.length() - 1);
+    }
+
+    public static void reverse(char[] arr, int start,int end) {
+
+        while (start < end) {
+
+            char temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
         }
 
-        int[] count = new int[CHAR];
-
-        for(int i = 0; i < str1.length(); i++){
-            
-            count[str1.charAt(i)]++;
-            count[str2.charAt(i)]--;
-        }
-
-        for(int i = 0; i < CHAR; i++){
-            if(count[i] != 0){
-                return false;
-            } 
-        }
-        return true;
     }
 
     public static void main(String[] args) {
 
-        String str1 = "abaaaac";
-        String str2 = "aaacba";
+        String str = "My.Name.Is.Aniket.Dhiwar";
 
-        boolean result = StringPractice.isAnagram(str1, str2);
-        if (result) {
-            System.out.println("is Anagram!!");
-        } else {
-            System.out.println("is not a Anagram!!");
-        }
-       
+        char[] arr = str.toCharArray();
+
+        StringPractice.reverseWords(arr, str);
+        System.out.println(arr);
+
     }
 }
