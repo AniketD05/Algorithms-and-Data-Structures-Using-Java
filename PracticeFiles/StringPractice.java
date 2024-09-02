@@ -1,59 +1,35 @@
-import java.util.Arrays;
+import java.util.Stack;
 
-public class StringPractice {
+public class StringPractice{
 
-    public static boolean areDistinct(String str, int start, int end){
+    public static void reverseSentence(String sentence){
 
-        boolean[] visited = new boolean[256];
+        String[] words = sentence.split("\\.");
 
-        for(int k = start; k <= end; k++){
-            if(visited[str.charAt(k)]  == true){
-                return false;
-            } else {
-                visited[str.charAt(k)] = true;
+        Stack<String> st = new Stack<>();
+
+        for(String word : words ){
+            st.push(word);
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while (!st.isEmpty()) {
+            sb.append(st.pop());
+
+            if(!st.isEmpty()){
+                sb.append(" ");
             }
         }
-        return true;
-    }
 
-    public static int LongestDistinctSubString(String str){
-        int result = 0;
-
-        for(int start = 0; start < str.length(); start++){
-            for(int end = 0; end < str.length(); end++){
-                if (areDistinct(str, start, end)) {
-                    result = Math.max(result, end - start + 1);
-                }
-            }
-        }
-        return result;
-    }
-
-
-    public static int LongestDistinctSubString2(String str){
-
-        int[] prev = new int[256];
-        int start = 0;
-        int result = 0;
-        Arrays.fill(prev, -1);
-
-        for(int end = 0; end < str.length(); end++){
-            
-            start = Math.max(start, prev[str.charAt(end)] + 1);
-            int maxEnd = end - start + 1;
-            result = Math.max(result, maxEnd);
-            prev[str.charAt(end)] = end;
-
-        }
-        
-        return result;
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
         
-        String str = "geeksforgeeks";
+        String sentence  = "My.Name.Is.Aniket";
 
-        int len = StringPractice.LongestDistinctSubString2(str); 
-        System.out.println(len);
+        StringPractice.reverseSentence(sentence);
     }
+
 }
