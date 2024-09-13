@@ -1,35 +1,40 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 public class StringPractice{
 
-    public static void reverseSentence(String sentence){
+    public static String longestDistinctSubString(String str){
 
-        String[] words = sentence.split("\\.");
+        int result = 0;
+        int finalStartIndex = 0;
+        int start = 0;
+        int maxEnd = 0;
+        int[] prev = new int[256];
+        Arrays.fill(prev, -1);  
 
-        Stack<String> st = new Stack<>();
+        for(int end = 0; end < str.length(); end++){
+            
+            start = Math.max(start, prev[str.charAt(end)] + 1);
 
-        for(String word : words ){
-            st.push(word);
-        }
+            maxEnd = end - start + 1;
 
-        StringBuilder sb = new StringBuilder();
-
-        while (!st.isEmpty()) {
-            sb.append(st.pop());
-
-            if(!st.isEmpty()){
-                sb.append(" ");
+            if(maxEnd > result){
+                result = maxEnd;
+                finalStartIndex = start;
             }
-        }
 
-        System.out.println(sb);
+            prev[str.charAt(end)] = end;
+            
+        }
+        return str.substring(finalStartIndex, finalStartIndex + result);
     }
 
-    public static void main(String[] args) {
-        
-        String sentence  = "My.Name.Is.Aniket";
 
-        StringPractice.reverseSentence(sentence);
+    public static void main(String[] args) {
+      
+        String str = "abac";
+
+        System.out.println(StringPractice.longestDistinctSubString(str));;
     }
 
 }
