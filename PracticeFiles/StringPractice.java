@@ -1,46 +1,41 @@
-
 public class StringPractice {
 
-    public static boolean isPalindrome(String str, int start, int end){
+    public static void solution(char[] strArr) {
 
+            int start = 0;
 
-        while (start < end) {
-           
-            if (str.charAt(start) != str.charAt(end)) {
-                return false;
+            for (int end = start + 1; end < strArr.length; end++) {
+                if (strArr[end] == ' ') {
+                    reverse(strArr, start, end - 1);
+                    start = end + 1;
+                }
             }
-            start++;
-            end--;
+        
 
-            //abba
-        }
-        return true;
+        reverse(strArr, start, strArr.length - 1);
+        reverse(strArr, 0, strArr.length - 1);
 
     }
 
-    public static void longestSubString(String str) {
-        int finalStart = 0;
-        int maxLength = 0;
+    public static void reverse(char[] strArr, int start, int end) {
 
-        for (int start = 0; start < str.length(); start++) {
-            for (int end = start; end < str.length(); end++) {
-
-                if (isPalindrome(str, start, end)) {
-
-                    if ((end - start + 1) > maxLength || ((end - start + 1) == maxLength && start > finalStart)) {
-                        finalStart = start;
-                        maxLength = end - start + 1;
-                    }
-                }
-            }
+        while (start < end) {
+            char temp = strArr[start];
+            strArr[start] = strArr[end];
+            strArr[end] = temp;
+            start++;
+            end--;
         }
-        System.out.println(str.substring(finalStart, finalStart + maxLength));
     }
 
     public static void main(String[] args) {
 
-        String str = "aabbccaa";
+        String str = "my name is aniket dhiwar";
 
-        StringPractice.longestSubString(str);
+        char[] strArr = str.toCharArray();
+
+        StringPractice.solution(strArr);
+        System.out.println(strArr);
+
     }
 }

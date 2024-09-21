@@ -1,6 +1,6 @@
 public class StringReversing {
 
-    public static void reverseWords(char[] strArr, String str){
+    public static void reverseWords(char[] strArr){
 
       int start = 0;
 
@@ -11,8 +11,8 @@ public class StringReversing {
             }
             
       }
-      reverse(strArr, start, str.length()-1);
-      reverse(strArr, 0, str.length()-1);
+      reverse(strArr, start, strArr.length-1);
+      reverse(strArr, 0, strArr.length-1);
 
     }
 
@@ -33,7 +33,7 @@ public class StringReversing {
 
         char[] strArr = str.toCharArray();
 
-        StringReversing.reverseWords(strArr, str);
+        StringReversing.reverseWords(strArr);
         System.out.println(strArr);
     }
 }
