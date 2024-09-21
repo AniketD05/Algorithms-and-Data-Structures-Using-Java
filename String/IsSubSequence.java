@@ -32,7 +32,7 @@ public class IsSubSequence {
     public static void main(String[] args) {
 
         String str1 = "ABCDEF";
-        String str2 = "AED";
+        String str2 = "AFD";
 
         int sizeStr1 = str1.length();
         int sizeStr2 = str2.length();

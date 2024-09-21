@@ -1,40 +1,46 @@
-import java.util.Arrays;
-import java.util.Stack;
 
-public class StringPractice{
+public class StringPractice {
 
-    public static String longestDistinctSubString(String str){
+    public static boolean isPalindrome(String str, int start, int end){
 
-        int result = 0;
-        int finalStartIndex = 0;
-        int start = 0;
-        int maxEnd = 0;
-        int[] prev = new int[256];
-        Arrays.fill(prev, -1);  
 
-        for(int end = 0; end < str.length(); end++){
-            
-            start = Math.max(start, prev[str.charAt(end)] + 1);
-
-            maxEnd = end - start + 1;
-
-            if(maxEnd > result){
-                result = maxEnd;
-                finalStartIndex = start;
+        while (start < end) {
+           
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
             }
+            start++;
+            end--;
 
-            prev[str.charAt(end)] = end;
-            
+            //abba
         }
-        return str.substring(finalStartIndex, finalStartIndex + result);
+        return true;
+
     }
 
+    public static void longestSubString(String str) {
+        int finalStart = 0;
+        int maxLength = 0;
+
+        for (int start = 0; start < str.length(); start++) {
+            for (int end = start; end < str.length(); end++) {
+
+                if (isPalindrome(str, start, end)) {
+
+                    if ((end - start + 1) > maxLength || ((end - start + 1) == maxLength && start > finalStart)) {
+                        finalStart = start;
+                        maxLength = end - start + 1;
+                    }
+                }
+            }
+        }
+        System.out.println(str.substring(finalStart, finalStart + maxLength));
+    }
 
     public static void main(String[] args) {
-      
-        String str = "abac";
 
-        System.out.println(StringPractice.longestDistinctSubString(str));;
+        String str = "aabbccaa";
+
+        StringPractice.longestSubString(str);
     }
-
 }
